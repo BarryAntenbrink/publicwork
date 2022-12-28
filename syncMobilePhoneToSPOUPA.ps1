@@ -24,7 +24,7 @@ Try {
         if((Get-PnPUserProfileProperty -Account $AzureADUser.UserPrincipalName).UserProfileProperties.CellPhone -ne $AzureADUser.MobilePhone){
             # Property differs, update with AzureAD value
             # Check to see if we're to overwrite existing property value
-            if ($overwriteExistingSPOUPAValue -eq "yes") {
+            if ($overwriteExistingSPOUPAValue -eq "True") {
                 Write-Output "Update CellPhone for $($AzureADUser.UserPrincipalName)"
                 Set-PnPUserProfileProperty -Account $AzureADUser.UserPrincipalName -PropertyName CellPhone -Value $AzureADUser.MobilePhone
             }
